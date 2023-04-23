@@ -26,6 +26,7 @@ import org.json.JSONObject
 
 const val HELLO_ANDROID = "Hello Android!"
 const val ERROR = "Error"
+const val NAME = "name"
 const val URL_FOR_TEST = "https://demo2803075.mockable.io/flamingo_test"
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +59,7 @@ private fun sendGet(baseContext: Context, updateName: (String) -> Unit) {
             // Display the first 500 characters of the response string.
             response.toString()
             val obj = JSONObject(response)
-            val newName: String = obj.optString("name")
+            val newName: String = obj.optString(NAME)
             updateName(newName)
         },
         { updateName(ERROR) })
